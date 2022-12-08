@@ -1,0 +1,5 @@
+class BookSerializer < ActiveModel::Serializer
+  attributes  :title, :author_id, :user_id, :genre, :image, :publication_year
+  has_one :user
+  has_one :author
+end
