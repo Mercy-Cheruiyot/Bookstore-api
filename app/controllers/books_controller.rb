@@ -15,6 +15,11 @@ class BooksController < ApplicationController
         book.destroy
         head :no_content
     end
+    def update
+        book= @current_user.books.find_by(id: params[:id])
+        book.update(book_params)
+        render json:book, status: :created
+    end
     private
     def book_params
         params.permit(:title,:author_id,:publication_year,:image,:user_id)
